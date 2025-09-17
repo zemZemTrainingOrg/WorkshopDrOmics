@@ -25,12 +25,18 @@
       curl -s https://get.nextflow.io | bash
       sudo mv nextflow /usr/local/bin/
       
-      curl -o Miniconda3-latest-Linux-x86_64.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-      bash Miniconda3-latest-Linux-x86_64.sh -b -f -p $PWD/miniconda
-      export PATH="$PWD/miniconda/bin:$PATH"
+      # Install Miniconda
+      wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh" -O miniforge.sh && \
+      bash miniforge.sh -b -p $PWD/miniforge
+      export PATH="$PWD/miniforge/bin:$PATH"
+      $PWD/miniforge/bin/conda init
+      source ~/.bashrc 
       
-      # Install Mamba
-      conda install -y mamba -c conda-forge
+      conda config --set auto_activate_base false
+      conda config --add channels conda-forge
+      conda config --add channels bioconda
+      conda config --add channels defaults
+      conda config --set channel_priority strict
 
       # Verify installations
       docker --version
