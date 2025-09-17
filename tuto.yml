@@ -1,0 +1,9 @@
+name: Tuto
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+ - nextflow=24.04.4
+ - fastqc=0.12.1
+ - multiqc=1.27
