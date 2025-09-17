@@ -1,0 +1,8 @@
+Schedule
+- 9:00 AM - 10:00 AM: Session 1 - Introduction to Nextflow
+- 10:00 AM - 11:30 AM: Session 2 - Writing Your First Pipeline
+- 11:30 AM - 12:00 PM: Break
+- 12:00 PM - 1:30 PM: Session 3 - Running Pipelines with Containers
+- 1:30 PM - 2:00 PM: Lunch Break
+- 2:00 PM - 3:00 PM: Session 4 - Debugging and Running Pipelines Locally
+- 3:00 PM - 4:00 PM: Session 5 - Wrap-Up and Next Steps
