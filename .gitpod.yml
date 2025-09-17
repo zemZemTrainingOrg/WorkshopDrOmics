@@ -1,0 +1,51 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - name: Install Nextflow, Docker, and Singularity
+    init: |
+      # Install Docker
+      sudo apt-get update
+      sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+      sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+      sudo apt-get update
+      sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+      sudo usermod -aG docker gitpod
+
+      # Install Singularity
+      sudo apt install -y golang
+      export VERSION=1.2.2  # Check for the latest version on GitHub
+      curl -LO https://github.com/apptainer/apptainer/releases/download/v${VERSION}/apptainer-${VERSION}.tar.gz
+      tar -xzf apptainer-${VERSION}.tar.gz
+      cd apptainer-${VERSION}
+      ./mconfig && make -C builddir && sudo make -C builddir install
+      cd ..
+      rm https://github.com/apptainer/apptainer/releases/download/v${VERSION}/apptainer-${VERSION}.tar.gz
+      
+      # Install Miniconda
+      wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh" -O miniforge.sh && \
+      bash miniforge.sh -b -p $PWD/miniforge
+      export PATH="$PWD/miniforge/bin:$PATH"
+      $PWD/miniforge/bin/conda init
+      source ~/.bashrc 
+      
+      conda config --set auto_activate_base false
+      conda config --add channels conda-forge
+      conda config --add channels bioconda
+      conda config --add channels defaults
+      conda config --set channel_priority strict
+
+      # install java with sdk 
+      sdk install java 17.0.10-tem -y
+      sdk default java 17.0.10-tem -y
+
+      # Install Nextflow
+      curl -s https://get.nextflow.io | bash
+      sudo mv nextflow /usr/local/bin/
+      
+      # Verify installations
+      docker --version
+      singularity --version
+      nextflow -version
+      conda --version
+      mamba --version
