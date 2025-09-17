@@ -141,6 +141,7 @@ Nextflow simplifies pipeline development by breaking down workflows into smaller
 
 
 3. Output channels: Where results are sent.
+   
 ~~~
 process exampleProcess {
     input:
@@ -180,30 +181,31 @@ Channels can hold various data types such as files, strings, or lists, making th
 
 
 Example:
-
+~~~
 process A {
     output:
-    file 'result_A.txt' ,emit: channelA
+    path 'result_A.txt' ,emit: channelA
  
     script:
     """
     echo "This is the result of process A" > result_A.txt
     """
 }
-
+~~~
+~~~
 process B {
     input:
-    file from channelA
+    path myinputfile
     output:
     file 'result_B.txt' ,emit:  channelB
 
     script:
     """
-    cat result_A.txt > result_B.txt
+    cat ${myinputfile} > result_B.txt
     echo "This is the result of process B" >> result_B.txt
     """
 }
-
+~~~
 
 **2.** Collecting and Aggregating Outputs:
 
