@@ -242,3 +242,27 @@ Nextflow provides built-in support for workflow reporting, allowing users to gen
 
 ## Modules and Subworkflows
 Modules in Nextflow promote workflow modularity by encapsulating reusable components that can be easily shared and maintained. Subworkflows extend this concept by enabling hierarchical workflow design, where complex pipelines are constructed from interconnected modules. This approach enhances reusability, maintainability, and scalability in large-scale computational workflows.
+
+---
+
+## Editor 
+
+**Firas Zemzem** – [zemzemfiras@gmail.com](mailto:zemzemfiras@gmail.com)
+
+## Call for Collaboration
+
+We welcome contributions from the community! If you are interested in improving tutorials, adding new workflow examples, or enhancing existing materials, please feel free to submit issues or pull requests. Your expertise and feedback will help make this workshop even more valuable for everyone.
+
+Collaborators can join by:
+
+* Forking the repository and submitting pull requests
+* Suggesting improvements via issues
+* Sharing new Nextflow modules or workflows
+
+---
+> License
+
+This repository is licensed under the MIT License. You are free to use, modify, and distribute the materials in this repository, provided that you include the original copyright notice.
+
+> Let’s build a strong, open, and reproducible Nextflow learning community together!
+
