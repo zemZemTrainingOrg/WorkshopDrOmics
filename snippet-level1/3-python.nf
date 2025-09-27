@@ -11,7 +11,7 @@ process runPythonScript {
     script:
     """
     # Run an inline Python script
-    python << EOF 
+    python3 << EOF 
     # Print the input value from Nextflow into Python
     print('Input:', $data)
     EOF
