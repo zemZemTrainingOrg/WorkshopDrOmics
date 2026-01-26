@@ -12,7 +12,7 @@ This repository contains materials and exercises for a **Nextflow workshop**, th
 ## 📂 Repository Structure
 
 ```
-Workshop/                      # Root directory for the Nextflow tutorials
+Workshop/                             # Root directory for the Nextflow tutorials
 ├── README.md                         # Instructions / documentation for the repo
 ├── runMe.sh                          # Script install tools for local users
 ├── samples.csv                       # Example CSV input file 
